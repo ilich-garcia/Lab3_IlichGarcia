@@ -21,12 +21,12 @@ int main() {
 		cin >> option;
 
 		if (option == 1) {
-	/*		int quotient, residue, power;
-			vector<int**> newMatrix;
+			int quotient, residue, power;
+			// vector<int**> newMatrix;
 
 			cout << "Ingrese el grado más grande del polinomio: ";
 			cin >> power;
-
+/*
 			int matrix** = new int*[3];
 
 			for(int i = 0; i < power; i++) {
@@ -39,11 +39,13 @@ int main() {
 				cout << "Ingrese el polinomio x^" << i << ": ";
 		      cin >> matrix[i];
 
-			}
+			}*/
 
-			quotient = getQuotient(power);
-         residue = getResidue();
-	*/	} else if (option == 2) {
+			// quotient = getQuotient(power);
+         residue = getResidue(power);
+
+			cout << "Residuo: " << residue << endl;
+		} else if (option == 2) {
 			int size, quantity;
 
 			do {
@@ -73,16 +75,33 @@ double getQuotient(int power) {
 	}
 
 	return quotient;
+}*/
+
+double getResidue(int size) {
+	double residue = 0;
+	int* matrix = new int[size + 1];
+	int COUNT = 0, a;
+
+   cout << "Ingrese valor de a: ";
+   cin >> a;
+
+   for(int i = size; i >= 0; i--) {
+      cout << "Ingrese el polinomio x^" << i << ": ";
+      cin >> matrix[COUNT];
+		COUNT++;
+   }
+
+	for(int i = 0; i <= size; i++) {
+		if (i == 0) {
+			residue = matrix[0];
+		} else {
+			residue = residue * a + matrix[i];
+		}
+	}
+
+	return residue;
 }
 
-double getResidue() {
-	double residual;
-
-	
-
-	return 
-}
-*/
 int** initializeTable(int size, int quantity) {
 	int COUNT = 0;
 	int** table = new int*[size];
